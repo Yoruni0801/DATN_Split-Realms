@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &275370685883486492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255592767944923889}
+  - component: {fileID: 4451382100381382202}
+  m_Layer: 0
+  m_Name: LaserMirrorMiniGame_Bootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &255592767944923889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275370685883486492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4451382100381382202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275370685883486492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cf0a14c5fa4a14b35e81c35a8b50d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildOnAwake: 1
+  crystals:
+  - name: Crystal_Source
+    position: {x: 120, y: 0.3}
+    sprite: {fileID: 0}
+    source: 1
+    goal: 0
+    reflector: 0
+    sourceDirection: 0
+    facing: 0
+    routeStates:
+    - facing: 0
+      enterFace: 3
+      exitFace: 0
+    - facing: 1
+      enterFace: 2
+      exitFace: 1
+    - facing: 2
+      enterFace: 0
+      exitFace: 2
+    - facing: 3
+      enterFace: 2
+      exitFace: 3
+  - name: Crystal_A_RotatedBySwitch_1
+    position: {x: 124.2, y: 0.3}
+    sprite: {fileID: 0}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 0
+    routeStates:
+    - facing: 0
+      enterFace: 3
+      exitFace: 0
+    - facing: 1
+      enterFace: 2
+      exitFace: 1
+    - facing: 2
+      enterFace: 0
+      exitFace: 2
+    - facing: 3
+      enterFace: 2
+      exitFace: 3
+  - name: Crystal_B_RotatedBySwitch_2
+    position: {x: 124.2, y: 4.2}
+    sprite: {fileID: 0}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 3
+    routeStates:
+    - facing: 0
+      enterFace: 3
+      exitFace: 0
+    - facing: 1
+      enterFace: 2
+      exitFace: 1
+    - facing: 2
+      enterFace: 0
+      exitFace: 2
+    - facing: 3
+      enterFace: 2
+      exitFace: 3
+  - name: Crystal_C_RotatedBySwitch_3
+    position: {x: 132, y: 4.2}
+    sprite: {fileID: 0}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 2
+    routeStates:
+    - facing: 0
+      enterFace: 3
+      exitFace: 0
+    - facing: 1
+      enterFace: 2
+      exitFace: 1
+    - facing: 2
+      enterFace: 0
+      exitFace: 2
+    - facing: 3
+      enterFace: 2
+      exitFace: 3
+  - name: Crystal_Goal
+    position: {x: 132, y: -1.1}
+    sprite: {fileID: 0}
+    source: 0
+    goal: 1
+    reflector: 0
+    sourceDirection: 0
+    facing: 0
+    routeStates:
+    - facing: 0
+      enterFace: 3
+      exitFace: 0
+    - facing: 1
+      enterFace: 2
+      exitFace: 1
+    - facing: 2
+      enterFace: 0
+      exitFace: 2
+    - facing: 3
+      enterFace: 2
+      exitFace: 3
+  switches:
+  - name: Switch_1_Rotate_Crystal_A
+    position: {x: 121.8, y: -3.2}
+    sprite: {fileID: 0}
+    controlledCrystalIndex: 1
+  - name: Switch_2_Rotate_Crystal_B
+    position: {x: 126, y: -3.2}
+    sprite: {fileID: 0}
+    controlledCrystalIndex: 2
+  - name: Switch_3_Rotate_Crystal_C
+    position: {x: 130.2, y: -3.2}
+    sprite: {fileID: 0}
+    controlledCrystalIndex: 3

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2900524329881402269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5610379808106477372}
+  - component: {fileID: 8107846795107663789}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5610379808106477372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900524329881402269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -182.7798, y: 7.5100293, z: -0.07101545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8107846795107663789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900524329881402269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ac03c2fbdd4f55a75c3a223dd81d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  speakerNameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  portraitImage: {fileID: 0}
+  nextButton: {fileID: 0}
+  dialogueLines:
+  - speakerName: "Ch\u1ECB g\xE1i"
+    dialogueText: "Em \u0111em m\xF3n \u0111\u1ED3 n\xE0y qua l\xE0ng b\xEAn c\u1EA1nh
+      gi\xFAp ch\u1ECB nh\xE9!"
+    portrait: {fileID: 1053293272, guid: 9e0161fa226074be3b94ffe5da403bf4, type: 3}
+  - speakerName: "Ch\u1ECB g\xE1i"
+    dialogueText: "H\xE3y c\u1EA9n th\u1EADn qu\xE1i v\u1EADt tr\xEAn \u0111\u01B0\u1EDDng
+      \u0111i \u0111\xF3"
+    portrait: {fileID: 1053293272, guid: 9e0161fa226074be3b94ffe5da403bf4, type: 3}

@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1078440018940140042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2706286625445036234}
+  - component: {fileID: 6905014712431113713}
+  - component: {fileID: 4564896479414148760}
+  m_Layer: 0
+  m_Name: Cutscene - TinhLinh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2706286625445036234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078440018940140042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.893944, y: 12.434954, z: -0.4371032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &6905014712431113713
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078440018940140042}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2123302845787634293, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4151318835593583887, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9061624031767978308, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7646122609521746815, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: -9156789542547407202, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3328579934433440052, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8538444583373826135, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2601953249228369451, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2069258965352946487, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4155548221543840311, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5800172623748119621, guid: 14ae56641f4efc941b5ff476947c2752, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - ac00a827d0e02864998774507c2499fc: {fileID: 0}
+    - ad4d46dc926eb6c4e95378b84b375e2b: {fileID: 0}
+    - 728687e86796b284ba28f176771e8f29: {fileID: 0}
+    - b28619fd7fdefed4cafab2cb5f965024: {fileID: 0}
+--- !u!114 &4564896479414148760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078440018940140042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b1a9431af03654987b8728fe3619b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 6905014712431113713}
+  disableMainAudioListener: 1
+  onPlayed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPaused:
+    m_PersistentCalls:
+      m_Calls: []
+  onStopped:
+    m_PersistentCalls:
+      m_Calls: []
