@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixelate Documentation</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #101113;
+      --panel: #181a1f;
+      --panel-soft: #20232a;
+      --text: #f4f4f5;
+      --muted: #b6bac3;
+      --line: #333844;
+      --accent: #ffffff;
+      --link: #7cc7ff;
+      --code-bg: #0c0d10;
+      --ok: #9ef0be;
+      --warn: #ffd27a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 56px;
+    }
+
+    header {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--panel), #121317);
+      padding: 34px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      font-size: 44px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      font-size: 26px;
+      line-height: 1.25;
+      margin: 0 0 14px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin: 24px 0 8px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul, ol {
+      margin: 0 0 16px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    code {
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+    }
+
+    .hero-link {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #101113;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(220px, 300px) 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    nav, section, .callout {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+
+    nav {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+    }
+
+    nav h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    nav ol {
+      margin-left: 18px;
+      margin-bottom: 0;
+    }
+
+    section {
+      padding: 26px;
+      margin-bottom: 18px;
+    }
+
+    .callout {
+      padding: 16px 18px;
+      margin: 18px 0;
+      background: var(--panel-soft);
+    }
+
+    .callout strong {
+      color: var(--ok);
+    }
+
+    .warning strong {
+      color: var(--warn);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel-soft);
+      padding: 16px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 12px 0;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        padding: 24px 16px 40px;
+      }
+
+      header {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .grid, .cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --panel: #ffffff;
+        --panel-soft: #f4f5f7;
+        --text: #17181c;
+        --muted: #4c5360;
+        --line: #c9ced8;
+        --link: #005c99;
+        --code-bg: #f4f5f7;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      nav {
+        position: static;
+      }
+
+      .hero-link {
+        border: 1px solid var(--line);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Offline setup guide</p>
+      <h1>Pixelate Documentation</h1>
+      <p class="lead">Pixelate converts 3D scene objects and animation clips into pixel-art sprite sheets from inside the Unity Editor. This offline document covers the core setup. The hosted docs are the canonical source for screenshots, updates, and detailed troubleshooting.</p>
+      <a class="hero-link" href="https://docs.pixelate.tomblack.ca/">Open full hosted documentation</a>
+    </header>
+
+    <div class="grid">
+      <nav aria-label="Table of contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#requirements">Requirements</a></li>
+          <li><a href="#quickstart">Quickstart</a></li>
+          <li><a href="#animation">Animation capture</a></li>
+          <li><a href="#sections">Capture Manager sections</a></li>
+          <li><a href="#profiles">Profiles and palettes</a></li>
+          <li><a href="#normal-maps">Normal maps</a></li>
+          <li><a href="#output">Output files</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+          <li><a href="#links">Docs links</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <section id="requirements">
+          <h2>1. Requirements</h2>
+          <p>Pixelate is an Editor tool. Capture workflows do not require Play Mode.</p>
+          <ul>
+            <li><strong>Unity version:</strong> any version of Unity 6.</li>
+            <li><strong>Required package:</strong> 2D Sprite, package id <code>com.unity.2d.sprite</code>.</li>
+            <li><strong>Recommended workflow:</strong> Universal Render Pipeline. Pixelate's demo content is built for URP, and URP supports Sprite-Lit 2D lighting with normal maps out of the box.</li>
+            <li><strong>Export location:</strong> generated textures must stay inside the Unity project's <code>Assets/</code> folder.</li>
+          </ul>
+          <div class="callout">
+            <strong>Tip:</strong> Use an orthographic capture camera for predictable sprite output.
+          </div>
+        </section>
+
+        <section id="quickstart">
+          <h2>2. Quickstart: capture a static sprite</h2>
+          <ol>
+            <li>In the Hierarchy, right-click and select <strong>Pixelate &gt; Pixelate Capture Manager</strong>.</li>
+            <li>Select the new Pixelate Capture Manager GameObject.</li>
+            <li>Drag the GameObject you want to capture into <strong>Target</strong>.</li>
+            <li>In <strong>Camera</strong>, assign the camera that frames the target.</li>
+            <li>Set <strong>Cell Size</strong>. The default is <code>64 x 64</code>.</li>
+            <li>Use <strong>Preview</strong> to check framing and draw mode.</li>
+            <li>In <strong>Output</strong>, choose a folder under <code>Assets/</code>.</li>
+            <li>Click <strong>Capture</strong>.</li>
+          </ol>
+          <p>A static capture creates <code>{TargetName}.png</code>. If Normal Map is enabled, Pixelate also creates <code>{TargetName}_N.png</code> and links it as the diffuse sprite sheet's secondary normal texture.</p>
+          <p><a href="https://docs.pixelate.tomblack.ca/quickstart">Read the hosted quickstart</a></p>
+        </section>
+
+        <section id="animation">
+          <h2>3. Animation capture</h2>
+          <ol>
+            <li>Assign a Target and Capture Camera first.</li>
+            <li>Turn on the <strong>Animation</strong> section.</li>
+            <li>Add one or more Source Clips.</li>
+            <li>Set Frames Per Second. The default is <code>12</code>.</li>
+            <li>If the target has no Animator, click <strong>Add Animator</strong> in the Animation section.</li>
+            <li>Click <strong>Capture</strong>.</li>
+          </ol>
+          <p>Each source clip is captured into its own sprite sheet atlas. If Normal Map is enabled, each clip also gets a matching normal-map atlas linked to its diffuse atlas. If Animation is enabled but no clips are assigned, Pixelate falls back to static image capture.</p>
+          <p><a href="https://docs.pixelate.tomblack.ca/animation">Read the animation guide</a></p>
+        </section>
+
+        <section id="sections">
+          <h2>4. Capture Manager sections</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Target</h3>
+              <p>Assign the scene object that Pixelate should render.</p>
+            </div>
+            <div class="card">
+              <h3>Camera</h3>
+              <p>Assign the capture camera, set Cell Size, and choose whether output is pixelated.</p>
+            </div>
+            <div class="card">
+              <h3>Preview</h3>
+              <p>Render an inspector preview before exporting. Lit preview lighting stays visually fixed from the top left.</p>
+            </div>
+            <div class="card">
+              <h3>Output</h3>
+              <p>Choose an Assets folder, pivot, pixels per unit, and overwrite behavior.</p>
+            </div>
+          </div>
+          <p class="muted">Each foldout help button in the Inspector opens the hosted page for that feature.</p>
+        </section>
+
+        <section id="profiles">
+          <h2>5. Profiles and palettes</h2>
+          <p>Each Pixelate Capture Manager starts with a local unsaved Pixelate Profile. Use it for per-manager color and lighting settings. Click <strong>Save</strong> when you want to create a reusable <code>PixelateProfile</code> asset. Click <strong>Unlink</strong> to copy assigned profile values back into the local manager profile.</p>
+          <p>Color Palette can be disabled, generated automatically, or driven by a custom 1-pixel-tall palette texture. Invalid custom palettes are ignored and behave like no palette.</p>
+          <ul>
+            <li><a href="https://docs.pixelate.tomblack.ca/profiles">Profiles</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/color-palette">Color palette</a></li>
+          </ul>
+        </section>
+
+        <section id="normal-maps">
+          <h2>6. Normal maps</h2>
+          <p>Enable Normal Map in the local or assigned profile to export matching normal-map atlases. The default Lighting Steps value is <code>2</code>. During export, Pixelate assigns each generated normal map as the diffuse sprite sheet's <code>_NormalMap</code> secondary texture.</p>
+          <ul>
+            <li><strong>URP recommended:</strong> use Unity's Sprite-Lit-Default shader with a 2D Renderer and 2D lights.</li>
+            <li><strong>Light 2D setup:</strong> turn on Normal Maps on the <code>Light2D</code> component.</li>
+            <li><strong>2D Renderer setup:</strong> under Light Render Textures, set Render Scale to <code>1</code>.</li>
+            <li><strong>Demo reference:</strong> open <code>Assets/Pixelate/DEMO/Scenes/Visualize.unity</code> or use the pre-configured assets in <code>Assets/Pixelate/DEMO/URP</code>.</li>
+            <li><strong>Built-in fallback:</strong> use the included toon-lit sprite shader only when the project cannot use URP.</li>
+          </ul>
+          <p><a href="https://docs.pixelate.tomblack.ca/normal-map">Read the normal map guide</a></p>
+        </section>
+
+        <section id="output">
+          <h2>7. Output files</h2>
+          <p>Pixelate exports sliced atlas textures inside the selected Assets folder. Output is grouped under <code>{SelectedExportFolder}/{TargetName}/</code>. Animation clips export under <code>{SelectedExportFolder}/{TargetName}/{ClipName}/</code>.</p>
+          <p><strong>Pixels Per Unit</strong> sets the sprite import scale for generated diffuse and normal-map textures. Pixelate disables Generate Physics Shape on exported sprites.</p>
+          <ul>
+            <li><code>{TargetName}.png</code>: static diffuse sprite sheet.</li>
+            <li><code>{TargetName}_N.png</code>: static normal-map sprite sheet when Normal Map is enabled.</li>
+            <li><code>{TargetName}_{ClipName}.png</code>: animation diffuse atlas.</li>
+            <li><code>{TargetName}_{ClipName}_N.png</code>: animation normal-map atlas when Normal Map is enabled.</li>
+          </ul>
+          <p>Pixelate does not create Unity <code>.anim</code> clips as a capture side effect. Use Unity's Animation window or your preferred sprite-animation workflow after the sprite sheet is generated.</p>
+        </section>
+
+        <section id="troubleshooting">
+          <h2>8. Troubleshooting</h2>
+          <div class="callout warning">
+            <strong>Capture button is disabled:</strong> read the message in the Inspector. Pixelate blocks capture when required setup is missing or unsafe.
+          </div>
+          <ul>
+            <li><strong>No capture camera assigned:</strong> assign a camera in the Camera section. Downstream capture sections stay hidden until setup is valid.</li>
+            <li><strong>Animation needs an Animator:</strong> use Add Animator in the Animation section or add an Animator to the target manually.</li>
+            <li><strong>Palette is ignored:</strong> custom palette textures must be 1 pixel tall, sRGB color, point-filtered, clamp-wrapped, uncompressed, and inside the Unity project. Use <strong>Fix import settings</strong> below the Custom Palette field when Pixelate shows an import warning.</li>
+            <li><strong>Export folder changed or disappeared:</strong> Pixelate falls back to <code>Assets/</code> so generated output stays inside the project.</li>
+            <li><strong>Normal-map lighting looks flat:</strong> in URP, use a 2D Renderer, set Light Render Textures Render Scale to <code>1</code>, use Sprite-Lit-Default, and enable Normal Maps on the <code>Light2D</code>.</li>
+          </ul>
+          <p><a href="https://docs.pixelate.tomblack.ca/troubleshooting">Read troubleshooting</a></p>
+        </section>
+
+        <section id="links">
+          <h2>9. Docs links</h2>
+          <ul>
+            <li><a href="https://docs.pixelate.tomblack.ca/">Full documentation</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/quickstart">Quickstart</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/image-capture">Image capture</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/animation">Animation capture</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/camera">Camera</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/preview">Preview</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/output">Output</a></li>
+            <li><a href="https://docs.pixelate.tomblack.ca/faq">FAQ</a></li>
+          </ul>
+          <p class="muted">No scripting is required for normal Pixelate use, so this package does not include a separate programming API reference.</p>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      Pixelate offline documentation. Hosted docs remain the source of truth for updated screenshots and detailed walkthroughs.
+    </footer>
+  </div>
+</body>
+</html>
