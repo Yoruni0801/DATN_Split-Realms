@@ -1,0 +1,24 @@
+public enum BossActionType
+{
+    None,
+    Idle,
+    Chase,
+    Approach,
+    Retreat,
+    Strafe,
+    Dash,
+    GapCloseDash,
+    Attack,
+    ComboAttack,
+    DashAttack,
+    JumpAttack,
+    TurnSlash,
+    Parry,
+    ParryCounter,
+    Evade,
+    JumpEvade,
+    Landing,
+    Hurt,
+    Stun,
+    Die
+}

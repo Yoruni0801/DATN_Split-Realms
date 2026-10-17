@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0cf5fe516963bc4c9b0107a8c9e063d, type: 3}
+  m_Name: Fire VFX Fall Explosion Config
+  m_EditorClassIdentifier: 
+  activeDuration: 1.2
+  dropDuration: 0.35
+  explosionDelay: 0
+  movementSpeedMultiplier: 1
+  disableGravityWhileActive: 1
+  activeGravityScale: 0
+  groundSearchDistance: 12
+  groundOffset: 0.5
+  explosionRadius: 2.25
+  explosionColliderLifetime: 0.08
+  damageMultiplier: 1
+  activeVfxPrefab: {fileID: 6355049849604423933, guid: d5c46241d4eac8648ae7f9c62e5650b0, type: 3}
+  activeVfxLocalPosition: {x: 0, y: 0, z: 0}
+  activeVfxLocalEuler: {x: 0, y: 0, z: 0}
+  activeVfxLocalScale: {x: 1, y: 1, z: 1}
+  explosionVfxPrefab: {fileID: 129134, guid: 3ad7829578f473a4a95c2e75c0f5ef6f, type: 3}
+  explosionVfxLocalEuler: {x: 0, y: 0, z: 0}
+  explosionVfxLocalScale: {x: 1, y: 1, z: 1}
+  explosionVfxLifetime: 1.5
+  activeVfxStopDelay: 0.1
+  hidePlayerRenderers: 1

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394e730cdf46018428d3c3aff395b351, type: 3}
+  m_Name: Projectile Skill Config
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 100000, guid: 137cc3422a61fa24bad35f139396a313, type: 3}
+  tinyProjectilePrefab: {fileID: 100000, guid: 137cc3422a61fa24bad35f139396a313, type: 3}
+  smallProjectilePrefab: {fileID: 100000, guid: 8d58fc062c2f9af489471bc7f8133bcc, type: 3}
+  normalProjectilePrefab: {fileID: 100000, guid: 9e7e314d7b691dc489eacade971bc2e7, type: 3}
+  megaProjectilePrefab: {fileID: 100000, guid: 84ea467763dd55845972a2a664d7bb84, type: 3}
+  speed: 12
+  lifetime: 2
+  spawnOffset: {x: 1.2, y: 0.9}
+  spawnOffsetSpace: 0
+  minimumHoldToShowAndFire: 0.33
+  maxChargeAdditionalOffsetX: 0.5
+  autoAim: 1
+  autoAimRadius: 8
+  autoAimOnlyFacingDirection: 1
+  overrideChargeDamage: 1
+  tinyChargeDamage: 10
+  smallChargeDamage: 25
+  normalChargeDamage: 30
+  megaChargeDamage: 35
+  enemyImpactSound: {fileID: 0}
+  staticImpactSound: {fileID: 0}
+  bounceBackSpeed: 4
+  bounceBackLifetime: 0.35

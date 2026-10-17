@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696b8bc3ebd573649a0122b372860dbb, type: 3}
+  m_Name: Fire Spear Dash
+  m_EditorClassIdentifier: 
+  elementType: 1
+  attackType: 6
+  spawnRotationMode: 0
+  animationName: 11
+  bowSkinName: RIGHTHAND/Spear_OneHand_Common1
+  skillName: Fire Spear Dash
+  damage: 30
+  cooldown: 8
+  manaCost: 0
+  pullPoseTime: 0.5
+  icon: {fileID: -376911738, guid: cc725e0c70f6dd24c931250c25eeaa5f, type: 3}
+  spawnRotationOffset: 0
+  skillColliderEnabled: 1
+  colliderProfileName: boudingboxright
+  colliderAttachmentName: Spear
+  colliderIndex: -1
+  colliderStartupDelay: 0.08
+  colliderActiveDuration: 0.5
+  colliderDealsDamage: 1
+  description: Dash forward with a fire-covered spear thrust.

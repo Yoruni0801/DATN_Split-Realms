@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8bb133e2e9e7f428fdb994c8570f8b, type: 3}
+  m_Name: Area Skill Config
+  m_EditorClassIdentifier: 
+  deliveryMode: 1
+  areaPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 100000, guid: 137cc3422a61fa24bad35f139396a313, type: 3}
+  radius: 2
+  duration: 1
+  tickInterval: 0.2
+  projectileLifetime: 2
+  jumpImpulse: 8
+  projectileCount: 5
+  projectileSpacing: 0.15
+  spreadAngle: 60
+  centerShotAngleDown: 45
+  apexVelocityThreshold: 0.25
+  arcGravityScale: 1.5
+  spreadShotSpeed: 14
+  maxApexWait: 0.6
+  offset: {x: 0, y: 0}
+  projectileSpawnOffset: {x: 0.6, y: 0.5}
+  arcLaunchVelocity: {x: 8, y: 7}

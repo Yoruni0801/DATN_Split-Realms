@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fdcde8bbfc4d05a25e8ea0a9d26ad4, type: 3}
+  m_Name: Sunflower Fairy Element VFX Profile
+  m_EditorClassIdentifier: 
+  water:
+    prefab: {fileID: 7944133684924989999, guid: a1586f217f2e746479b256e3303b512e, type: 3}
+    localPosition: {x: 0, y: 1.2, z: 0}
+    localEulerAngles: {x: 90, y: 0, z: 0}
+    localScale: {x: 1.2, y: 1.2, z: 1.2}
+  wind:
+    prefab: {fileID: 8409227965235034639, guid: 2d6672ed9e94237458a40dd89530e456, type: 3}
+    localPosition: {x: 0, y: 1.2, z: 0}
+    localEulerAngles: {x: 90, y: 0, z: 0}
+    localScale: {x: 1.2, y: 1.2, z: 1.2}
+  fire:
+    prefab: {fileID: 174222, guid: 996caa051abc4be4d8b39b565b8694b5, type: 3}
+    localPosition: {x: 0, y: 0.42, z: 0}
+    localEulerAngles: {x: 0, y: 0, z: 0}
+    localScale: {x: 1.5, y: 1.5, z: 0.14}
+  earth:
+    prefab: {fileID: 5964719868977000675, guid: eb730f68489c36e47a7d17992f51b44a, type: 3}
+    localPosition: {x: 0, y: 1.2, z: 0}
+    localEulerAngles: {x: 90, y: 0, z: 0}
+    localScale: {x: 1.2, y: 1.2, z: 1.2}

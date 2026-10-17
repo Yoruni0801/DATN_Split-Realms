@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696b8bc3ebd573649a0122b372860dbb, type: 3}
+  m_Name: Wind Tornado
+  m_EditorClassIdentifier: 
+  elementType: 4
+  attackType: 10
+  spawnRotationMode: 1
+  animationName: 24
+  bowSkinName: RIGHTHAND/Staff_Common1
+  skillName: Wind Tornado
+  damage: 5
+  cooldown: 3
+  manaCost: 0
+  pullPoseTime: 0
+  icon: {fileID: 757913421, guid: fa8893b2c3589a443b5bf0f40bb70145, type: 3}
+  spawnRotationOffset: 0
+  skillColliderEnabled: 0
+  colliderProfileName: 
+  colliderAttachmentName: 
+  colliderIndex: -1
+  colliderStartupDelay: 0
+  colliderActiveDuration: 0.3
+  colliderDealsDamage: 0
+  description: Create a tornado under an enemy, lifting and spinning enemies while
+    dealing continuous damage.

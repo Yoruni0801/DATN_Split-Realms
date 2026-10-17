@@ -1,0 +1,23 @@
+public enum BossAnimationId
+{
+    None,
+    Idle,
+    Walk,
+    Attack,
+    NormalAttack1,
+    NormalAttack2,
+    NormalAttack3,
+    SpecialAttack,
+    Dash,
+    Jump,
+    Fall,
+    Hurt,
+    Stun,
+    Die,
+    ParryStart,
+    ParryFail,
+    ParrySuccess,
+    Block,
+    Range,
+    Magic
+}

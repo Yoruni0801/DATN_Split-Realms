@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39198023aed27d4cae76bb031f2da20, type: 3}
+  m_Name: Fire Spear Barrage Config
+  m_EditorClassIdentifier: 
+  duration: 0.9
+  hitInterval: 0.15
+  startup: 0.05
+  hitboxSize: {x: 3.2, y: 0.65}
+  hitboxOffset: {x: 1.6, y: 0}
+  damageMultiplier: 0.35
+  maximumTargetsPerTick: 8
+  preventRepeatedTargetPerCast: 0
+  attackVfxPrefab: {fileID: 344670232931725940, guid: 351b5875f5d7b434db82d5e6b431d501, type: 3}
+  beamCount: 5
+  beamInterval: 0.2
+  beamVfxLifetime: 0.12
+  parentBeamToSpear: 0
+  mirrorBeamVfxWithPlayerFacing: 1
+  attackVfxLocalPosition: {x: 0, y: 0.8, z: 0}
+  attackVfxLocalEuler: {x: 0, y: 90, z: 0}
+  attackVfxLocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  vfxStopDelay: 0.15
+  beamSpawnGizmoColor: {r: 0.1, g: 0.75, b: 1, a: 0.9}
+  beamSpawnGizmoRadius: 0.12

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192e65f09213f0d4d974edb94e246afb, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: 
+  dashGhostColor: {r: 0.55, g: 1, b: 0.85, a: 0.5}
+  swimDashVfxOverride: {fileID: 0}
+  skills:
+  - skillData: {fileID: 11400000, guid: b72df2f656aeaf74c887674d1e6afd35, type: 2}
+    executionConfig: {fileID: 11400000, guid: bdaa512695ee6a747a273a5f8008aea0, type: 2}
+    skillSound: {fileID: 0}
+    activationKey: 111

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394e730cdf46018428d3c3aff395b351, type: 3}
+  m_Name: Storm Projectile Skill Config
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 100000, guid: 137cc3422a61fa24bad35f139396a313, type: 3}
+  tinyProjectilePrefab: {fileID: 100000, guid: 7d76b81bbc5975e4f9e2b476613ed0a8, type: 3}
+  smallProjectilePrefab: {fileID: 100000, guid: a172f6b7d35b22148bd4e492f037a5ef, type: 3}
+  normalProjectilePrefab: {fileID: 100000, guid: 5362e5478c85f994aa2ce83b36f715e3, type: 3}
+  megaProjectilePrefab: {fileID: 100000, guid: 658dfb93c2407984a92aeed75c042f4b, type: 3}
+  speed: 12
+  lifetime: 1.2
+  spawnOffset: {x: 1, y: 3}
+  spawnOffsetSpace: 0
+  minimumHoldToShowAndFire: 0.33
+  maxChargeAdditionalOffsetX: 0.5
+  autoAim: 1
+  autoAimRadius: 8
+  autoAimOnlyFacingDirection: 1
+  overrideChargeDamage: 1
+  tinyChargeDamage: 10
+  smallChargeDamage: 25
+  normalChargeDamage: 40
+  megaChargeDamage: 50
+  enemyImpactSound: {fileID: 0}
+  staticImpactSound: {fileID: 0}
+  bounceBackSpeed: 4
+  bounceBackLifetime: 0.35

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8b2e2d2d1e3ad49b3357c2bf3dc523, type: 3}
+  m_Name: Fire Spear Dash Config
+  m_EditorClassIdentifier: 
+  distance: 5
+  duration: 0.5
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  autoTarget: 1
+  targetRange: 6
+  targetStopDistance: 0.65
+  wallStopDistance: 0.08
+  damageMultiplier: 1
+  hitboxSize: {x: 0.9, y: 0.45}
+  knockbackForce: 7
+  knockUpForce: 0
+  piercing: 0
+  maximumTargets: 1
+  burnEnabled: 1
+  burnChance: 0.35
+  burnDamage: 4
+  burnDuration: 3
+  attackVfxPrefab: {fileID: 174222, guid: 996caa051abc4be4d8b39b565b8694b5, type: 3}
+  attackVfxLocalPosition: {x: -2, y: 0.8, z: 0}
+  attackVfxLocalEuler: {x: 0, y: 0, z: 0}
+  attackVfxLocalScale: {x: 2, y: 2, z: 2}
+  impactVfxPrefab: {fileID: 123764, guid: 5077e2ec8ec48d247af6fecd8d5bb756, type: 3}
+  impactVfxLocalEuler: {x: 0, y: 0, z: 0}
+  impactVfxLocalScale: {x: 2, y: 2, z: 2}
+  impactLifetime: 1.25
+  vfxStopDelay: 0.15
+  startup: 0.08
+  active: 0.22
+  recovery: 0.12

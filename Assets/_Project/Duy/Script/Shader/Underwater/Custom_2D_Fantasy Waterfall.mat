@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_2D_Fantasy Waterfall
+  m_Shader: {fileID: 4800000, guid: 6a838e7b5496f8145a908b51f7a454b8, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BodySwayAmp: 0.035
+    - _BodySwayFreq: 1.2
+    - _BottomFoamHeight: 0.08
+    - _BottomSplashHeight: 0.09
+    - _BottomSpread: 0.06
+    - _BottomTurbulence: 0.08
+    - _DistortionSpeed: 1.2
+    - _DistortionStrength: 0.03
+    - _EdgeGlowWidth: 0.14
+    - _EdgeNoiseFreq: 2.2
+    - _EdgeSoftness: 0.035
+    - _EdgeWaveAmp: 0.025
+    - _EdgeWaveFreq: 2
+    - _EdgeWobbleFreq: 2.5
+    - _EnableExternalAlpha: 0
+    - _FastLayerMultiplier: 1.45
+    - _FastLayerSpeed: 1.45
+    - _FlowSpeed: 4.5
+    - _FoamAmount: 0.5
+    - _FoamBubbleCutoff: 0.55
+    - _FoamCellScale: 16
+    - _FoamCellSpeed: 1.8
+    - _FoamIntensity: 1.2
+    - _GlowStrength: 0.75
+    - _GravityStretch: 0.5
+    - _HighlightStrength: 1.2
+    - _Layer1Speed: 0.8
+    - _Layer2Speed: 1.4
+    - _Layer3Speed: 2.2
+    - _LeftEdgeAmp: 0.03
+    - _LeftEdgeNoiseAmp: 0.04
+    - _MasterBrightness: 1.15
+    - _NoiseScale: 4
+    - _OverallBrightness: 1.15
+    - _RibbonScale: 12
+    - _RibbonStrength: 1
+    - _RibbonStretch: 0.25
+    - _RightEdgeAmp: 0.03
+    - _RightEdgeNoiseAmp: 0.04
+    - _RippleDensity: 14
+    - _RippleSpeed: 2.8
+    - _RippleStrength: 0.35
+    - _SilhouetteSpeed: 0.8
+    - _StreakCover: 0.46
+    - _StreakDensity: 11
+    - _StreakLength: 1.2
+    - _StreakSharpness: 0.14
+    - _StreakSoftness: 0.2
+    - _StreakStretch: 0.85
+    - _TopFoamHeight: 0.05
+    - _TopLipHeight: 0.045
+    - _TopTurbulence: 0.015
+    - _TransparencyVar: 0.35
+    - _TransparencyVariation: 0.35
+    - _WaterOpacity: 0.82
+    - _WobbleScale: 3.5
+    m_Colors:
+    - _DeepWaterColor: {r: 0.04, g: 0.17999998, b: 0.34999996, a: 0.85}
+    - _FlowDirection: {r: 0, g: -1, b: 0, a: 0}
+    - _FoamColor: {r: 0.92, g: 0.97999996, b: 1, a: 1}
+    - _HighlightColor: {r: 0.34999996, g: 0.92, b: 1, a: 1}
+    - _WaterColor: {r: 0.079999976, g: 0.52, b: 0.78, a: 0.9}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

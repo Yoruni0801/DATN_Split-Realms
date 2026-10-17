@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e06cb8e9ccd7784593c1c8c58146f73, type: 3}
+  m_Name: Earth Shield Config
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 100004, guid: 0c780eb88b8d7494b88387a181d2ee75, type: 3}
+  breakVfxPrefab: {fileID: 100008, guid: 5815a7623bd959b46a88b3150245faae, type: 3}
+  duration: 4
+  animationDuration: 0.6
+  damageReductionPercent: 40
+  shieldLocalPosition: {x: 0, y: 1, z: 0}
+  shieldLocalEuler: {x: 0, y: 0, z: 0}
+  shieldLocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  breakVfxLifetime: 1.5

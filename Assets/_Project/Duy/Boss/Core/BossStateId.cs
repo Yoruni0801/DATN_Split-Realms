@@ -1,0 +1,27 @@
+public enum BossStateId
+{
+    Idle,
+    Chase,
+    Approach,
+    Retreat,
+    Strafe,
+    Dash,
+    Attack,
+    ComboAttack,
+    DashAttack,
+    JumpAttack,
+    TurnSlash,
+    Parry,
+    ParryCounter,
+    RangedPressure,
+    SwordThrow,
+    JumpSlam,
+    Evade,
+    JumpEvade,
+    Landing,
+    AttackRecovery,
+    PostAttackPause,
+    Hurt,
+    Stun,
+    Dead
+}

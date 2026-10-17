@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_2D_Underwater Rock
+  m_Shader: {fileID: 4800000, guid: b06377477da956943876f6300d604973, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Brightness: 0.95
+    - _CausticsDepthFade: 0.72
+    - _CausticsIntensity: 0.18
+    - _CausticsScale: 4.5
+    - _CausticsSharpness: 5
+    - _CausticsSpeed: 0.48
+    - _Contrast: 1.13
+    - _CreviceDarkness: 0.12
+    - _DepthDarkness: 0.38
+    - _DepthRange: 5
+    - _EnableExternalAlpha: 0
+    - _ManualDepth: 0.4
+    - _OriginalColorPreservation: 0.42
+    - _Saturation: 0.82
+    - _SedimentAmount: 0.12
+    - _SedimentContrast: 3
+    - _SedimentScale: 4
+    - _SurfaceLineIntensity: 0.25
+    - _SurfaceLineWidth: 0.025
+    - _SurfaceTransition: 0.035
+    - _SurfaceVariation: 0.05
+    - _SurfaceVariationScale: 5
+    - _TintStrength: 0.38
+    - _UnderwaterAmount: 1
+    - _UseWaterSurface: 0
+    - _WaterSurfaceY: 0
+    - _WetBandStrength: 0.45
+    - _WetBandWidth: 0.09
+    m_Colors:
+    - _CausticsColor: {r: 0.62, g: 1, b: 0.88, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DeepTint: {r: 0.13999996, g: 0.39999998, b: 0.5, a: 1}
+    - _SedimentColor: {r: 0.34999996, g: 0.52, b: 0.41999996, a: 1}
+    - _ShallowTint: {r: 0.54999995, g: 0.86, b: 0.8399999, a: 1}
+    - _SurfaceLineColor: {r: 0.72, g: 1, b: 0.92, a: 1}
+    - _WetTint: {r: 0.11999995, g: 0.29999998, b: 0.33999997, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f8c5f7dd64ad841be59dedcdd025b4, type: 3}
+  m_Name: Wind Staff Beam Config
+  m_EditorClassIdentifier: 
+  beamPrefab: {fileID: 100002, guid: 7f1b241ecefb2374fbb0e4ead91522e6, type: 3}
+  animationName: Blow Petals
+  fairyOriginOffset: {x: 0, y: 0}
+  beamLocalEuler: {x: 0, y: 90, z: 0}
+  castDelay: 0
+  animationDurationFallback: 1
+  duration: 1.2
+  maxDistance: 12
+  targetSearchRadius: 12
+  damagePerTick: 2
+  damageTickInterval: 0.25

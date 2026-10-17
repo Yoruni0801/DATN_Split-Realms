@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_VegetationBurnHeatWave
+  m_Shader: {fileID: 4800000, guid: 5599d2d070469dc4d93369fbe4d4f214, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 0.144
+    - _AlphaCutoff: 0.5
+    - _BurnRadius: 3
+    - _BurnSoftness: 1
+    - _EdgeSoftness: 0
+    - _EdgeWidth: 0.35
+    - _HazeStrength: 0.401
+    - _HeatDistortStrength: 0.051
+    - _HeatSpeed: 1.5
+    - _HorizontalStrength: 2.85
+    - _Intensity: 0.0269
+    - _NoiseScale: 2.5
+    - _NoiseScaleX: 12
+    - _NoiseScaleY: 4
+    - _Speed: 5
+    - _SteamStrength: 0.634
+    - _VerticalStrength: 1.61
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BurnCenter: {r: 0, g: 0, b: 0, a: 0}
+    - _BurnColor: {r: 0.079999976, g: 0.044999972, b: 0.025, a: 1}
+    - _HotColor: {r: 1, g: 0.45, b: 0.079999976, a: 1}
+    - _TintColor: {r: 1, g: 0.54999995, b: 0.24999997, a: 0.25}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

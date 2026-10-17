@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46cdab88df4f734a99ca3f77b4f0db5, type: 3}
+  m_Name: Earth Pillar Blast Config
+  m_EditorClassIdentifier: 
+  pillarPrefab: {fileID: 119514, guid: 5d0c6afdcfb9c8440840b5b6f53792a5, type: 3}
+  targetSearchRadius: 12
+  castDelay: 0.1
+  damageDelay: 0.15
+  damageRadius: 2
+  damage: 35
+  pillarOffset: {x: 0, y: 0}
+  pillarLocalEuler: {x: 0, y: 0, z: 0}
+  pillarLocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  vfxLifetime: 1.5

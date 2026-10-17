@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df90d8db1f314c3bae0cbd049c3af1ef, type: 3}
+  m_Name: Sunflower Fairy Element Transition Profile
+  m_EditorClassIdentifier: 
+  switchDelay: 0.35
+  cleanupDelay: 1.2
+  water:
+    startVfx:
+      prefab: {fileID: 157264, guid: 7252d67658066af47bec6ca53e149df0, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 0.5
+    endVfx:
+      prefab: {fileID: 100010, guid: 3622df40ebe443f48b3c761801bbc51c, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 2, y: 2, z: 1}
+      lifetime: 1.2
+  wind:
+    startVfx:
+      prefab: {fileID: 148338, guid: a75f39c5bb6711049a1d5d5cbe4cd515, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 0.5
+    endVfx:
+      prefab: {fileID: 100008, guid: 890764e2a799d714fa817cc333d17e17, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 1.2
+  fire:
+    startVfx:
+      prefab: {fileID: 139178, guid: 6b3488aa97f1d514d8a4fa45cc3b2dad, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 0.5
+    endVfx:
+      prefab: {fileID: 100010, guid: 87698b9d467306440a17655d9c528f3a, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 1.2
+  earth:
+    startVfx:
+      prefab: {fileID: 189528, guid: 676af163bda25f042b4fb56488fbb3c8, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 0.5
+    endVfx:
+      prefab: {fileID: 100010, guid: 0779ad1cf28e6924c8bccb279d18eccf, type: 3}
+      localPosition: {x: 0, y: 1.2, z: 0}
+      localEulerAngles: {x: 0, y: 0, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      lifetime: 1.2
