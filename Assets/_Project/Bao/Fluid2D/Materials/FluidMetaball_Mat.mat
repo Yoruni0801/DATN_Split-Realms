@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FluidMetaball_Mat
+  m_Shader: {fileID: 4800000, guid: 4b0c44d0f195b044c968b051c7599838, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BandContrast: 1.32
+    - _BodyAlpha: 1
+    - _BottomRimScale: 0.42
+    - _DepthStrength: 0.92
+    - _EdgeSoftness: 0.028
+    - _FoamCurvature: 1.7
+    - _FresnelPower: 2.6
+    - _FresnelStrength: 0.18
+    - _HighlightStrength: 0.5
+    - _NoiseScale: 3.4
+    - _NoiseScaleB: 4.2
+    - _NoiseSpeed: 0.012
+    - _NoiseStrength: 0.92
+    - _OutlineWidth: 0.018
+    - _RippleStrength: 0.02
+    - _SparkleStrength: 0.08
+    - _SurfaceBandStrength: 1.6
+    - _SurfaceBandWidth: 0.2
+    - _Threshold: 0.36
+    - _VerticalGradient: 0.9
+    m_Colors:
+    - _DeepColor: {r: 0.03, g: 0.34, b: 0.46, a: 0.92}
+    - _FoamColor: {r: 0.97, g: 0.995, b: 1, a: 0.38}
+    - _OutlineColor: {r: 0.75, g: 0.94, b: 0.97, a: 0.35}
+    - _WaterColor: {r: 0.38, g: 0.94, b: 0.97, a: 0.5}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

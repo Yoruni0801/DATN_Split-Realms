@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_TempleBarrierFitted
+  m_Shader: {fileID: 4800000, guid: 4d0b5210c2b8ae5419150f462921c898, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SDFTex:
+        m_Texture: {fileID: 2800000, guid: f4fec8d62555fa846a1b4371ddfde55c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Distortion: 0.72
+    - _EdgeFalloff: 0.13
+    - _EdgeWidth: 0.016
+    - _FlowSpeed: 0.34
+    - _Glow: 1.1
+    - _MoteStrength: 0.38
+    - _Opacity: 0.88
+    - _PulseSpeed: 0.52
+    - _RuneSpeed: 0.35
+    - _RuneStrength: 0.95
+    - _SDFRange: 0.16
+    - _Standoff: 0.036
+    - _VeilOpacity: 0.34
+    - _VeinDepth: 0.22
+    m_Colors:
+    - _Centroid: {r: 0.493, g: 0.312, b: 0, a: 0}
+    - _EnergyColor: {r: 0.035, g: 0.58, b: 0.31, a: 1}
+    - _GroundFade: {r: 0.025, g: 0.06, b: 0, a: 0}
+    - _Rune0: {r: 0.963, g: 0.229, b: 1.649, a: 0.941}
+    - _Rune1: {r: 0.885, g: 0.512, b: 2.11, a: 0.086}
+    - _Rune2: {r: 0.689, g: 0.697, b: 2.386, a: 0.59}
+    - _Rune3: {r: 0.479, g: 0.845, b: -2.367, a: 0.367}
+    - _Rune4: {r: 0.292, g: 0.66, b: -2.513, a: 0.336}
+    - _Rune5: {r: 0.05, g: 0.523, b: -2.407, a: 0.461}
+    - _Rune6: {r: 0.027, g: 0.23, b: -1.565, a: 0.988}
+    - _RuneColor: {r: 0.82, g: 0.27, b: 0.025, a: 1}
+    - _VeilColor: {r: 0.018, g: 0.18, b: 0.1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

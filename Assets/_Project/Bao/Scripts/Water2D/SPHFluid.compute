@@ -1,0 +1,115 @@
+#pragma kernel DensityPressure
+#pragma kernel Forces
+#pragma kernel Integrate
+
+struct Particle {
+    float2 position;
+    float2 velocity;
+    float2 force;
+    float density;
+    float pressure;
+};
+
+RWStructuredBuffer<Particle> Particles;
+
+uint numParticles;
+float smoothingLength;
+float smoothingLengthSq;
+float mass;
+float restDensity;
+float gasConstant;
+float viscosity;
+float deltaTime;
+float2 gravity;
+float4 bounds; // x: minX, y: minY, z: maxX, w: maxY
+float damping;
+
+float Poly6Constant;
+float SpikyGradConstant;
+float ViscLapConstant;
+
+float2 interactionPos;
+float interactionRadius;
+float interactionForce;
+
+[numthreads(256, 1, 1)]
+void DensityPressure(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    
+    float2 pos = Particles[id.x].position;
+    float density = 0;
+    
+    for (uint i = 0; i < numParticles; i++) {
+        float2 diff = pos - Particles[i].position;
+        float r2 = dot(diff, diff);
+        if (r2 < smoothingLengthSq) {
+            float x = smoothingLengthSq - r2;
+            density += mass * Poly6Constant * x * x * x;
+        }
+    }
+    
+    Particles[id.x].density = max(density, 0.0001f);
+    Particles[id.x].pressure = gasConstant * (Particles[id.x].density - restDensity);
+}
+
+[numthreads(256, 1, 1)]
+void Forces(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    
+    float2 pos = Particles[id.x].position;
+    float2 vel = Particles[id.x].velocity;
+    float density = Particles[id.x].density;
+    float pressure = Particles[id.x].pressure;
+    
+    float2 forcePressure = float2(0, 0);
+    float2 forceViscosity = float2(0, 0);
+    
+    for (uint i = 0; i < numParticles; i++) {
+        if (i == id.x) continue;
+        
+        float2 diff = pos - Particles[i].position;
+        float r2 = dot(diff, diff);
+        
+        if (r2 < smoothingLengthSq && r2 > 0.00001f) {
+            float r = sqrt(r2);
+            float x = smoothingLength - r;
+            
+            float sharedPressure = (pressure + Particles[i].pressure) / 2.0f;
+            float2 grad = diff * (SpikyGradConstant * x * x / r);
+            forcePressure -= mass * sharedPressure / Particles[i].density * grad;
+            
+            float2 velDiff = Particles[i].velocity - vel;
+            forceViscosity += mass * velDiff / Particles[i].density * ViscLapConstant * x;
+        }
+    }
+    
+    float2 forceGravity = gravity * density;
+    Particles[id.x].force = forcePressure + viscosity * forceViscosity + forceGravity;
+}
+
+[numthreads(256, 1, 1)]
+void Integrate(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    
+    Particle p = Particles[id.x];
+    
+    float2 accel = p.force / p.density;
+    p.velocity += accel * deltaTime;
+    
+    // Interaction (Mouse/Object repulsion)
+    float2 diff = p.position - interactionPos;
+    float dist = length(diff);
+    if (dist < interactionRadius && dist > 0.01f) {
+        p.velocity += (diff / dist) * interactionForce * deltaTime;
+    }
+    
+    p.position += p.velocity * deltaTime;
+    
+    // Bounds collision
+    if (p.position.x < bounds.x) { p.position.x = bounds.x; p.velocity.x *= -damping; }
+    if (p.position.x > bounds.z) { p.position.x = bounds.z; p.velocity.x *= -damping; }
+    if (p.position.y < bounds.y) { p.position.y = bounds.y; p.velocity.y *= -damping; }
+    if (p.position.y > bounds.w) { p.position.y = bounds.w; p.velocity.y *= -damping; }
+    
+    Particles[id.x] = p;
+}

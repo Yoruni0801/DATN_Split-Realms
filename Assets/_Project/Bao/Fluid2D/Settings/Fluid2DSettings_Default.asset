@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc4add1f0459fe43b9d8985df13af26, type: 3}
+  m_Name: Fluid2DSettings_Default
+  m_EditorClassIdentifier: 
+  maxParticles: 3000
+  particleRadius: 0.08
+  smoothingRadius: 0.25
+  restDensity: 3
+  pressureStiffness: 15
+  nearPressureStiffness: 30
+  viscosity: 0.18
+  surfaceTension: 0.75
+  cohesionRadius: 0
+  reunificationStrength: 0.55
+  velocityDamping: 0.16
+  gravity: {x: 0, y: -9.81}
+  maxVelocity: 14
+  worldBounds: {x: -100, y: -100, z: 100, w: 100}
+  substeps: 4
+  collisionFriction: 0.22
+  collisionRestitution: 0.05
+  obstacleRestitution: 0.04
+  collisionNormalAbsorption: 0.55
+  surfaceColor: {r: 0.38, g: 0.94, b: 0.97, a: 0.5}
+  deepColor: {r: 0.03, g: 0.34, b: 0.46, a: 0.92}
+  foamColor: {r: 0.97, g: 0.995, b: 1, a: 0.38}
+  blurRadius: 3
+  densityThreshold: 0.36
+  outlineWidth: 0.018
+  outlineColor: {r: 0.75, g: 0.94, b: 0.97, a: 0.35}
+  edgeSoftness: 0.028
+  depthDarkening: 0.92
+  highlightStrength: 0.5
+  rippleStrength: 0.02
+  verticalGradient: 0.9
+  surfaceBandStrength: 1.6
+  surfaceBandWidth: 0.2
+  noiseStrength: 0.92
+  noiseScale: 3.4
+  noiseScaleB: 4.2
+  noiseSpeed: 0.012
+  fresnelStrength: 0.18
+  fresnelPower: 2.6
+  foamCurvature: 1.7
+  sparkleStrength: 0.08
+  bodyAlpha: 1
+  bandContrast: 1.32
+  bottomRimScale: 0.42

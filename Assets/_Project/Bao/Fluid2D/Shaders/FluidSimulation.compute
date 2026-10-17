@@ -1,0 +1,499 @@
+#pragma kernel ClearGrid
+#pragma kernel BuildGrid
+#pragma kernel PredictPositions
+#pragma kernel SolveDensityPressure
+#pragma kernel ApplyViscosity
+#pragma kernel ResolveStaticBounds
+#pragma kernel UpdateVelocity
+
+struct Particle {
+    float2 position;
+    float2 velocity;
+    float2 predictedPosition;
+    float density;
+    float nearDensity;
+    float pressure;
+    float nearPressure;
+    int active;
+    int type;
+};
+
+// Buffers
+RWStructuredBuffer<Particle> Particles;
+RWStructuredBuffer<uint> Grid;       // gridWidth * gridHeight * maxParticlesPerCell
+RWStructuredBuffer<uint> GridCount;  // gridWidth * gridHeight
+
+// Uniform Grid configuration
+float cellSize;
+uint gridWidth;
+uint gridHeight;
+uint maxParticlesPerCell;
+
+// Physical simulation parameters
+uint numParticles;
+float deltaTime;
+float2 gravity;
+float4 worldBounds; // x: minX, y: minY, z: maxX, w: maxY
+float damping;      // Hệ số nảy khi chạm tường (restitution)
+float maxVelocity;
+
+// DDR Parameters
+float smoothingRadius;
+float restDensity;
+float pressureStiffness;
+float nearPressureStiffness;
+float viscosity;
+float surfaceTension;
+float cohesionRadius;          // 0 => use smoothingRadius
+float reunificationStrength;   // extra pull for low-neighbor particles
+float velocityDamping;
+float collisionFriction;
+float obstacleRestitution;     // bounce against static/dynamic obstacles
+float collisionNormalAbsorption; // approach-velocity absorption on impact
+
+// Drains
+float4 drainBounds[8];
+uint numDrains;
+
+// Helper to get 1D cell index from 2D grid coordinates
+int GetCellIndex(int2 gridPos) {
+    if (gridPos.x < 0 || gridPos.x >= (int)gridWidth || gridPos.y < 0 || gridPos.y >= (int)gridHeight) {
+        return -1;
+    }
+    return gridPos.y * (int)gridWidth + gridPos.x;
+}
+
+[numthreads(256, 1, 1)]
+void ClearGrid(uint3 id : SV_DispatchThreadID) {
+    uint numCells = gridWidth * gridHeight;
+    if (id.x >= numCells) return;
+    GridCount[id.x] = 0;
+}
+
+[numthreads(256, 1, 1)]
+void BuildGrid(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    if (Particles[id.x].active == 0) return;
+    
+    float2 pos = Particles[id.x].predictedPosition; // Dùng predicted position để phân loại lưới
+    
+    int2 gridPos = (int2)floor((pos - worldBounds.xy) / cellSize);
+    int cellIndex = GetCellIndex(gridPos);
+    if (cellIndex < 0) return;
+    
+    uint offset;
+    InterlockedAdd(GridCount[cellIndex], 1, offset);
+    
+    if (offset < maxParticlesPerCell) {
+        Grid[cellIndex * maxParticlesPerCell + offset] = id.x;
+    }
+}
+
+[numthreads(256, 1, 1)]
+void PredictPositions(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    if (Particles[id.x].active == 0) return;
+    
+    // Áp dụng trọng lực và dự đoán vị trí mới
+    float2 vel = Particles[id.x].velocity + gravity * deltaTime;
+    
+    // Giới hạn tốc độ tối đa tránh lỗi bay hạt
+    float speed = length(vel);
+    if (speed > maxVelocity) {
+        vel = (vel / speed) * maxVelocity;
+    }
+    
+    Particles[id.x].velocity = vel;
+    Particles[id.x].predictedPosition = Particles[id.x].position + vel * deltaTime;
+}
+
+[numthreads(256, 1, 1)]
+void SolveDensityPressure(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    if (Particles[id.x].active == 0) return;
+    
+    float2 posI = Particles[id.x].predictedPosition;
+    float density = 0.0f;
+    float nearDensity = 0.0f;
+    
+    // Xác định ô lưới hiện tại của hạt I
+    int2 gridPosI = (int2)floor((posI - worldBounds.xy) / cellSize);
+    
+    // 1. Tính toán mật độ (Density & Near Density) bằng cách duyệt qua 9 ô lưới lân cận
+    for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+            int cellIdx = GetCellIndex(gridPosI + int2(x, y));
+            if (cellIdx < 0) continue;
+            
+            uint count = min(GridCount[cellIdx], maxParticlesPerCell);
+            for (uint k = 0; k < count; k++) {
+                uint j = Grid[cellIdx * maxParticlesPerCell + k];
+                if (j == id.x) continue;
+                
+                float2 diff = Particles[j].predictedPosition - posI;
+                float r2 = dot(diff, diff);
+                if (r2 < smoothingRadius * smoothingRadius) {
+                    float r = sqrt(max(r2, 1e-6f));
+                    float q = 1.0f - (r / smoothingRadius);
+                    float q2 = q * q;
+                    density += q2;
+                    nearDensity += q2 * q;
+                }
+            }
+        }
+    }
+    
+    // Tính toán áp suất
+    float pressure = pressureStiffness * (density - restDensity);
+    float nearPressure = nearPressureStiffness * nearDensity;
+    
+    // 2. Tính toán dịch chuyển đẩy áp suất (DDR Position Relaxation Step)
+    float2 displacement = float2(0, 0);
+    
+    for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+            int cellIdx = GetCellIndex(gridPosI + int2(x, y));
+            if (cellIdx < 0) continue;
+            
+            uint count = min(GridCount[cellIdx], maxParticlesPerCell);
+            for (uint k = 0; k < count; k++) {
+                uint j = Grid[cellIdx * maxParticlesPerCell + k];
+                if (j == id.x) continue;
+                
+                float2 diff = Particles[j].predictedPosition - posI;
+                float r2 = dot(diff, diff);
+                if (r2 < smoothingRadius * smoothingRadius) {
+                    float r = sqrt(max(r2, 1e-6f));
+                    float q = 1.0f - (r / smoothingRadius);
+                    float2 dir = diff / r;
+                    
+                    // Lực đẩy lưỡng cực dựa trên mật độ và áp suất tiệm cận
+                    float2 d = deltaTime * deltaTime * (pressure * q + nearPressure * q * q) * dir;
+                    
+                    // Phản lực dịch chuyển đẩy hạt J (chia sẻ 1 nửa lực dịch chuyển)
+                    Particles[j].predictedPosition += d * 0.5f;
+                    displacement -= d * 0.5f;
+                }
+            }
+        }
+    }
+    
+    Particles[id.x].predictedPosition += displacement;
+}
+
+[numthreads(256, 1, 1)]
+void ApplyViscosity(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    if (Particles[id.x].active == 0) return;
+    
+    float2 posI = Particles[id.x].predictedPosition;
+    float2 velI = Particles[id.x].velocity;
+    float2 viscForce = float2(0, 0);
+    float2 cohesionForce = float2(0, 0);
+    float2 neighborCentroid = float2(0, 0);
+    float neighborWeight = 0.0f;
+    uint neighborCount = 0;
+    
+    float cohR = cohesionRadius > 1e-5f ? cohesionRadius : smoothingRadius;
+    // Slightly larger cohesion than density kernel so near fragments can reunite.
+    cohR = max(cohR, smoothingRadius * 1.05f);
+    float cohR2 = cohR * cohR;
+    float smoothR2 = smoothingRadius * smoothingRadius;
+    
+    int2 gridPosI = (int2)floor((posI - worldBounds.xy) / cellSize);
+    
+    // Viscosity + cohesion over neighborhood (grid still covers ~smoothingRadius cells;
+    // cohesionRadius is expected near smoothingRadius so 3x3 remains valid).
+    for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+            int cellIdx = GetCellIndex(gridPosI + int2(x, y));
+            if (cellIdx < 0) continue;
+            
+            uint count = min(GridCount[cellIdx], maxParticlesPerCell);
+            for (uint k = 0; k < count; k++) {
+                uint j = Grid[cellIdx * maxParticlesPerCell + k];
+                if (j == id.x) continue;
+                
+                float2 diff = Particles[j].predictedPosition - posI;
+                float r2 = dot(diff, diff);
+                
+                if (r2 < smoothR2) {
+                    float r = sqrt(max(r2, 1e-6f));
+                    float q = 1.0f - (r / smoothingRadius);
+                    float2 relVel = Particles[j].velocity - velI;
+                    // XSPH-style viscosity: stronger at close range for less spray.
+                    viscForce += q * q * relVel * viscosity;
+                }
+                
+                if (r2 < cohR2) {
+                    float r = sqrt(max(r2, 1e-6f));
+                    float qn = 1.0f - (r / cohR);
+                    // Mid-range surface tension: weak when overlapping, peaks mid-kernel, falls off.
+                    float cohesionWindow = smoothstep(0.08f, 0.45f, r / cohR) *
+                                          (1.0f - smoothstep(0.7f, 1.0f, r / cohR));
+                    cohesionForce += (diff / r) * qn * qn * cohesionWindow * surfaceTension;
+                    
+                    float w = qn * qn;
+                    neighborCentroid += Particles[j].predictedPosition * w;
+                    neighborWeight += w;
+                    neighborCount++;
+                }
+            }
+        }
+    }
+    
+    // Isolated / sparse particles get an extra pull toward the local neighbor mass centroid
+    // so near droplets rejoin without turning the bulk into rigid jelly.
+    if (neighborWeight > 1e-5f && reunificationStrength > 1e-5f) {
+        float2 target = neighborCentroid / neighborWeight;
+        float2 toMass = target - posI;
+        float dist = length(toMass);
+        if (dist > 1e-5f) {
+            // 0 neighbors-dense => full; many neighbors => weak.
+            float isolation = saturate(1.0f - (float)neighborCount / 10.0f);
+            float pull = reunificationStrength * isolation * saturate(dist / max(cohR, 1e-4f));
+            cohesionForce += (toMass / dist) * pull * surfaceTension * 0.85f;
+        }
+    }
+    
+    Particles[id.x].velocity += (viscForce + cohesionForce) * deltaTime;
+}
+
+// Chướng ngại vật hình tròn tĩnh
+struct CircleObstacle {
+    float2 center;
+    float radius;
+    int active;
+};
+
+// Chướng ngại vật đoạn thẳng tĩnh (Box, Polygon, Edge Colliders)
+struct SegmentObstacle {
+    float2 a;
+    float2 b;
+    float radius;
+    int active;
+};
+
+// Vật thể động tương tác 2 chiều (Dynamic Rigidbody2D)
+struct DynamicBody {
+    float2 position;
+    float2 velocity;
+    float radius;
+    float mass;
+    int active;
+};
+
+struct DynamicBodyForce {
+    int forceX;
+    int forceY;
+};
+
+StructuredBuffer<CircleObstacle> CircleObstacles;
+StructuredBuffer<SegmentObstacle> SegmentObstacles;
+StructuredBuffer<DynamicBody> DynamicBodies;
+RWStructuredBuffer<DynamicBodyForce> DynamicForces;
+
+uint numCircleObstacles;
+uint numSegmentObstacles;
+uint numDynamicBodies;
+float particleRadius; // Bán kính hạt nước dùng để tính va chạm chướng ngại vật
+
+[numthreads(256, 1, 1)]
+void ResolveStaticBounds(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    if (Particles[id.x].active == 0) return;
+    
+    float2 predPos = Particles[id.x].predictedPosition;
+    float2 vel = Particles[id.x].velocity;
+    
+    // 1. Kiểm tra va chạm với các vùng Drain để hủy hạt nước ngay trên GPU
+    for (uint d = 0; d < numDrains; d++) {
+        float4 dBound = drainBounds[d];
+        if (predPos.x >= dBound.x && predPos.x <= dBound.z &&
+            predPos.y >= dBound.y && predPos.y <= dBound.w) {
+            Particles[id.x].active = 0; // Hủy hạt
+            return;
+        }
+    }
+
+    float friction = saturate(collisionFriction);
+    float obstRest = saturate(obstacleRestitution);
+    float absorb = saturate(collisionNormalAbsorption);
+
+    // 2. Va chạm với vật thể động tương tác 2 chiều (DynamicBodies)
+    for (uint b = 0; b < numDynamicBodies; b++) {
+        if (DynamicBodies[b].active == 0) continue;
+        
+        float2 diff = predPos - DynamicBodies[b].position;
+        float dist2 = dot(diff, diff);
+        float minBodyDist = DynamicBodies[b].radius + particleRadius;
+        
+        if (dist2 < minBodyDist * minBodyDist) {
+            float dist = sqrt(dist2);
+            float2 normal = diff / (dist > 1e-5f ? dist : 1.0f);
+            
+            // Đẩy hạt ra khỏi bề mặt vật thể động
+            predPos = DynamicBodies[b].position + normal * minBodyDist;
+            
+            // Tính toán vận tốc tương đối
+            float2 relVel = vel - DynamicBodies[b].velocity;
+            float vn = dot(relVel, normal);
+            
+            // Only respond when approaching; absorb part of normal impact energy.
+            if (vn < 0.0f) {
+                float bounce = obstRest * (1.0f - absorb);
+                float2 impulse = -(1.0f + bounce) * vn * normal;
+                // Extra absorption on approach (reduces rebound spray).
+                impulse += normal * (-vn * absorb * 0.35f);
+                vel += impulse;
+                // Tangential friction only.
+                float2 tanVel = vel - normal * dot(vel, normal);
+                vel = vel - tanVel * friction;
+            } else {
+                vel = vel * (1.0f - friction * 0.5f);
+            }
+            
+            // Soft contact response (not hard spring buoyancy). Object-side code
+            // smooths/clamps and applies water drag for natural float/sink.
+            float penetration = minBodyDist - dist;
+            float forceMagnitude = penetration * 70.0f;
+            
+            // Viscous normal resistance when approaching (no extra outward push)
+            if (vn < 0.0f) {
+                forceMagnitude -= vn * 10.0f;
+            }
+            
+            float2 force = -normal * forceMagnitude; // reaction on body
+            
+            // Per-particle force cap
+            float maxForce = 10.0f;
+            float forceLen = length(force);
+            if (forceLen > maxForce) {
+                force *= maxForce / forceLen;
+            }
+            
+            // Tích lũy lực đẩy phản hồi lên Body d (nhân 10000 để lưu dạng int nguyên vẹn)
+            int fx = (int)(force.x * 10000.0f);
+            int fy = (int)(force.y * 10000.0f);
+            InterlockedAdd(DynamicForces[b].forceX, fx);
+            InterlockedAdd(DynamicForces[b].forceY, fy);
+        }
+    }
+
+    // 3. Va chạm với chướng ngại vật hình tròn tĩnh (CircleObstacles)
+    for (uint c = 0; c < numCircleObstacles; c++) {
+        if (CircleObstacles[c].active == 0) continue;
+        
+        float2 diff = predPos - CircleObstacles[c].center;
+        float dist2 = dot(diff, diff);
+        float minCircleDist = CircleObstacles[c].radius + particleRadius;
+        
+        if (dist2 < minCircleDist * minCircleDist) {
+            float dist = sqrt(dist2);
+            float2 normal = diff / (dist > 1e-5f ? dist : 1.0f);
+            
+            predPos = CircleObstacles[c].center + normal * minCircleDist;
+            
+            float vn = dot(vel, normal);
+            if (vn < 0.0f) {
+                float bounce = obstRest * (1.0f - absorb);
+                vel = vel - (1.0f + bounce) * vn * normal;
+                // Kill remaining approach energy to reduce terrain rebound spray.
+                float vn2 = dot(vel, normal);
+                if (vn2 < 0.0f)
+                    vel -= normal * vn2 * absorb;
+                float2 tanVel = vel - normal * dot(vel, normal);
+                vel = vel - tanVel * friction;
+            } else {
+                vel = vel * (1.0f - friction * 0.5f);
+            }
+        }
+    }
+
+    // 3. Va chạm với chướng ngại vật đoạn thẳng tĩnh (SegmentObstacles)
+    for (uint s = 0; s < numSegmentObstacles; s++) {
+        if (SegmentObstacles[s].active == 0) continue;
+        
+        float2 ab = SegmentObstacles[s].b - SegmentObstacles[s].a;
+        float2 ap = predPos - SegmentObstacles[s].a;
+        
+        // Hệ số chiếu t giới hạn trong [0, 1]
+        float t = saturate(dot(ap, ab) / max(dot(ab, ab), 1e-8f));
+        float2 closestPoint = SegmentObstacles[s].a + t * ab;
+        
+        float2 diff = predPos - closestPoint;
+        float dist2 = dot(diff, diff);
+        float minSegDist = SegmentObstacles[s].radius + particleRadius;
+        
+        if (dist2 < minSegDist * minSegDist) {
+            float dist = sqrt(dist2);
+            float2 normal = diff / (dist > 1e-5f ? dist : 1.0f);
+            
+            predPos = closestPoint + normal * minSegDist;
+            
+            float vn = dot(vel, normal);
+            if (vn < 0.0f) {
+                float bounce = obstRest * (1.0f - absorb);
+                vel = vel - (1.0f + bounce) * vn * normal;
+                float vn2 = dot(vel, normal);
+                if (vn2 < 0.0f)
+                    vel -= normal * vn2 * absorb;
+                float2 tanVel = vel - normal * dot(vel, normal);
+                vel = vel - tanVel * friction;
+            } else {
+                vel = vel * (1.0f - friction * 0.5f);
+            }
+        }
+    }
+    
+    // 4. Va chạm với giới hạn khung thế giới (AABB)
+    if (predPos.x < worldBounds.x) {
+        predPos.x = worldBounds.x;
+        if (vel.x < 0.0f) vel.x = -vel.x * damping * (1.0f - absorb * 0.5f);
+        vel.y = vel.y * (1.0f - friction);
+    }
+    else if (predPos.x > worldBounds.z) {
+        predPos.x = worldBounds.z;
+        if (vel.x > 0.0f) vel.x = -vel.x * damping * (1.0f - absorb * 0.5f);
+        vel.y = vel.y * (1.0f - friction);
+    }
+    
+    if (predPos.y < worldBounds.y) {
+        predPos.y = worldBounds.y;
+        if (vel.y < 0.0f) vel.y = -vel.y * damping * (1.0f - absorb * 0.5f);
+        vel.x = vel.x * (1.0f - friction);
+    }
+    else if (predPos.y > worldBounds.w) {
+        predPos.y = worldBounds.w;
+        if (vel.y > 0.0f) vel.y = -vel.y * damping * (1.0f - absorb * 0.5f);
+        vel.x = vel.x * (1.0f - friction);
+    }
+    
+    // Soft cap residual spikes after multi-obstacle resolution.
+    float vLen = length(vel);
+    if (vLen > maxVelocity) {
+        vel = (vel / vLen) * maxVelocity;
+    }
+    
+    Particles[id.x].predictedPosition = predPos;
+    Particles[id.x].velocity = vel;
+}
+
+[numthreads(256, 1, 1)]
+void UpdateVelocity(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= numParticles) return;
+    if (Particles[id.x].active == 0) return;
+    
+    float2 newVel = (Particles[id.x].predictedPosition - Particles[id.x].position) / max(deltaTime, 1e-6f);
+    // Implicit damping: never reverses velocity; soft energy bleed after impacts.
+    newVel /= (1.0f + max(velocityDamping, 0.0f) * deltaTime);
+    
+    // Giới hạn tốc độ tối đa để ổn định mô phỏng
+    float speed = length(newVel);
+    if (speed > maxVelocity) {
+        newVel = (newVel / speed) * maxVelocity;
+    }
+    
+    Particles[id.x].velocity = newVel;
+    Particles[id.x].position = Particles[id.x].predictedPosition;
+}
