@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9959609268c24c4ebcfd9a2845dbb51, type: 3}
+  m_Name: BookMiniGameData
+  m_EditorClassIdentifier: 
+  books:
+  - bookName: "S\xE1ch 1"
+    isCorrectBook: 0
+    bookPrefab: {fileID: 8189356230005433204, guid: 318559299457539438d6c9e4a350d42e, type: 3}
+    subHintOnOpen: 
+  - bookName: "S\xE1ch 2"
+    isCorrectBook: 0
+    bookPrefab: {fileID: 338578485639944418, guid: e3ff34b6ca4b6aa4496153b3fded7ea6, type: 3}
+    subHintOnOpen: 
+  - bookName: "S\xE1ch 3"
+    isCorrectBook: 0
+    bookPrefab: {fileID: 1363177175130260165, guid: 094b6f62d993f004eb22b916fd4d4c38, type: 3}
+    subHintOnOpen: 
+  - bookName: "S\xE1ch 4"
+    isCorrectBook: 0
+    bookPrefab: {fileID: 9025947804769542137, guid: bde477469ae7747409b4c1baaf65043c, type: 3}
+    subHintOnOpen: 
+  - bookName: "S\xE1ch 5"
+    isCorrectBook: 0
+    bookPrefab: {fileID: 1926290031611250159, guid: bb44ffa8c261e1e478b65d4ce2dd1f56, type: 3}
+    subHintOnOpen: 
+  - bookName: "S\xE1ch 6"
+    isCorrectBook: 0
+    bookPrefab: {fileID: 7610978223913105839, guid: c68878a6405ab5c4b868b9b3bd7b9fd8, type: 3}
+    subHintOnOpen: 
+  - bookName: "T\u1ED1i C\u1ED5 H\u1ED9i Th\u01B0"
+    isCorrectBook: 1
+    bookPrefab: {fileID: 4392222035636769568, guid: 12a24c9b76cc0d94d899cdad7517390e, type: 3}
+    subHintOnOpen: 
+  mainHint: "M\u1ED9t cu\u1ED1n s\xE1ch m\xE0u <color=#FFD700>v\xE0ng kim huy\u1EC1n
+    b\xED</color> \u0111ang l\u1EA9n khu\u1EA5t \u0111\xE2u \u0111\xF3 gi\u1EEFa
+    m\u1EDB h\u1ED7n \u0111\u1ED9n n\xE0y. N\xF3 l\xE0 th\u1EE9 duy nh\u1EA5t n\u1EAFm
+    gi\u1EEF c\xE2u tr\u1EA3 l\u1EDDi. H\xE3y t\xECm ra n\xF3!"
+  wrongBookFlipSpeed: 0.3
+  coverAnimationTime: 0.5
+  wrongBookDismissDelay: 1
+  totalBooksToSpawn: 30
+  pileRadius: 1
+  pileMaxHeight: 1.5
+  maxRandomRotation: 25
