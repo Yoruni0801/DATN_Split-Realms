@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1717595700794382586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2479799866507138100}
+  - component: {fileID: 3119131984440831512}
+  m_Layer: 0
+  m_Name: LaserMirrorMiniGame_Bootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2479799866507138100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717595700794382586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3119131984440831512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717595700794382586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cf0a14c5fa4a14b35e81c35a8b50d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildOnAwake: 1
+  portalLocalPosition: {x: 4.5, y: 2.0}
+  portalMaterial: {fileID: 2100000, guid: 8a547fc2c5ea25149b00cd044cba877e, type: 2}
+  switchOffSprite: {fileID: 21300000, guid: ffd16f0d2e0919546b4884e58e893b12, type: 3}
+  switchOnSprite: {fileID: 21300000, guid: 7bd502bef8b6db44e9d956df99b0694c, type: 3}
+  crystalSprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+  goalSprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+  crystals:
+  - name: Crystal_0_Source_LeftBase
+    positionObject: {fileID: 0}
+    localPosition: {x: 1.0, y: 0.0}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 1
+    goal: 0
+    reflector: 0
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 76
+    - 0
+    - 180
+    - 270
+    aimTargets: []
+  - name: Crystal_1_Arch_LeftLow
+    positionObject: {fileID: 0}
+    localPosition: {x: 1.5, y: 2.0}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 180
+    - 51
+    - 270
+    - 0
+    aimTargets: []
+  - name: Crystal_2_Arch_LeftHigh
+    positionObject: {fileID: 0}
+    localPosition: {x: 2.8, y: 3.6}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 270
+    - 180
+    - 25
+    - 90
+    aimTargets: []
+  - name: Crystal_3_Arch_TopPeak
+    positionObject: {fileID: 0}
+    localPosition: {x: 4.5, y: 4.4}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 90
+    - 180
+    - 270
+    - 335
+    aimTargets: []
+  - name: Crystal_4_Arch_RightHigh
+    positionObject: {fileID: 0}
+    localPosition: {x: 6.2, y: 3.6}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 0
+    - 309
+    - 90
+    - 180
+    aimTargets: []
+  - name: Crystal_5_Arch_RightLow
+    positionObject: {fileID: 0}
+    localPosition: {x: 7.5, y: 2.0}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 0
+    goal: 0
+    reflector: 1
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 284
+    - 180
+    - 90
+    - 0
+    aimTargets: []
+  - name: Crystal_6_Goal_RightBase
+    positionObject: {fileID: 0}
+    localPosition: {x: 8.0, y: 0.0}
+    sprite: {fileID: 21300000, guid: 2af608d06e8204ba69a51f445cdbebeb, type: 3}
+    source: 0
+    goal: 1
+    reflector: 0
+    sourceDirection: 0
+    facing: 0
+    customAngles:
+    - 0
+    aimTargets: []
+  switches:
+  - name: Switch_1_Rotate_LeftLow
+    positionObject: {fileID: 0}
+    localPosition: {x: -10.0, y: -1.0}
+    offSprite: {fileID: 21300000, guid: ffd16f0d2e0919546b4884e58e893b12, type: 3}
+    onSprite: {fileID: 21300000, guid: 7bd502bef8b6db44e9d956df99b0694c, type: 3}
+    controlledCrystalIndex: 1
+  - name: Switch_2_Rotate_LeftHigh
+    positionObject: {fileID: 0}
+    localPosition: {x: -7.0, y: -1.0}
+    offSprite: {fileID: 21300000, guid: ffd16f0d2e0919546b4884e58e893b12, type: 3}
+    onSprite: {fileID: 21300000, guid: 7bd502bef8b6db44e9d956df99b0694c, type: 3}
+    controlledCrystalIndex: 2
+  - name: Switch_3_Rotate_TopPeak
+    positionObject: {fileID: 0}
+    localPosition: {x: -4.0, y: -1.0}
+    offSprite: {fileID: 21300000, guid: ffd16f0d2e0919546b4884e58e893b12, type: 3}
+    onSprite: {fileID: 21300000, guid: 7bd502bef8b6db44e9d956df99b0694c, type: 3}
+    controlledCrystalIndex: 3
+  - name: Switch_4_Rotate_RightHigh
+    positionObject: {fileID: 0}
+    localPosition: {x: -1.5, y: -1.0}
+    offSprite: {fileID: 21300000, guid: ffd16f0d2e0919546b4884e58e893b12, type: 3}
+    onSprite: {fileID: 21300000, guid: 7bd502bef8b6db44e9d956df99b0694c, type: 3}
+    controlledCrystalIndex: 4
+  solvedObject: {fileID: 0}

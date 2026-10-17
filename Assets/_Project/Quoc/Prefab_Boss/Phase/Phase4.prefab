@@ -1,0 +1,468 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2480119199341301001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8844072604861454152}
+  - component: {fileID: 7434750921817958011}
+  m_Layer: 11
+  m_Name: attackPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8844072604861454152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480119199341301001}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.1999999}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1357733147927502504}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &7434750921817958011
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480119199341301001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.777096, y: -0.51492846}
+      - {x: 6.439997, y: 2.1851013}
+      - {x: 5.2054977, y: 5.8827324}
+      - {x: 3.4044771, y: 8.239801}
+      - {x: 3.994853, y: 4.5664835}
+      - {x: 4.1203465, y: 1.394497}
+      - {x: 1.4159472, y: -0.041649103}
+      - {x: -0.14945106, y: -0.45835102}
+      - {x: 1.1137877, y: -0.9405159}
+      - {x: 5.378236, y: -1.0498226}
+  m_UseDelaunayMesh: 0
+--- !u!1 &8795710190203665446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357733147927502504}
+  - component: {fileID: 4759430575263260367}
+  - component: {fileID: 7841799189725454716}
+  - component: {fileID: 1911454430010075476}
+  - component: {fileID: 3525278979287222829}
+  - component: {fileID: 7095115427971530416}
+  - component: {fileID: 1238845415456644974}
+  - component: {fileID: 2666762111268819820}
+  - component: {fileID: 2512622747880229829}
+  - component: {fileID: 2372269702372909250}
+  - component: {fileID: 7183920147289163015}
+  m_Layer: 11
+  m_Name: Phase4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357733147927502504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 8844072604861454152}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4759430575263260367
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Mesh: {fileID: 0}
+--- !u!23 &7841799189725454716
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e0314f937645a4a47bd3a06e40e5fdf7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1911454430010075476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: 8d7bc628517a44d10858e0a1b879c827, type: 2}
+  initialSkinName: 
+  fixPrefabOverrideViaMeshFilter: 2
+  initialFlipX: 0
+  initialFlipY: 0
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  fixDrawOrder: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  physicsPositionInheritanceFactor: {x: 1, y: 1}
+  physicsRotationInheritanceFactor: 1
+  physicsMovementRelativeTo: {fileID: 0}
+  updateTiming: 1
+  unscaledTime: 0
+  _animationName: Idle
+  loop: 1
+  timeScale: 1
+--- !u!114 &3525278979287222829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57fff92e32fc24d74842442626a93abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonAnimation: {fileID: 1911454430010075476}
+  idleAnimName: Idle
+  moveAnimName: Run
+  attackAnimName: Skill
+  transitionAnimName: Skill
+  dieAnimName: Death
+  meleePoint: {fileID: 0}
+  rangedPoint: {fileID: 0}
+  groundPoint: {fileID: 0}
+--- !u!114 &7095115427971530416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a84f39b2b1c4e9089ef01a7d65b9004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Phase 4 - Tectonic Rending
+  skillCooldown: 3
+  debugMode: 0
+  phase4Model: {fileID: 3525278979287222829}
+  skeletonAnimation: {fileID: 1911454430010075476}
+  meleePoint: {fileID: 0}
+  rangedPoint: {fileID: 0}
+  groundPoint: {fileID: 0}
+  dashSpeed: 18
+  dashDamage: 18
+  dashKnockback: 4
+  skullScale: {x: 3, y: 3, z: 1}
+  skullCenterYOffset: 2
+  dashStopTags:
+  - Player
+  - Ground
+  - Wall
+  dashHitboxRadius: 2.2
+  maxDashDistance: 50
+  maxDashTimeout: 3
+  stopCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  uppercutWindupTime: 0.4
+  uppercutDamage: 20
+  eruptionVFXPrefab: {fileID: 8262851631137467050, guid: 37d7991c754029a479c448a4f1584f29, type: 3}
+  dashTrailVFXPrefab: {fileID: 7788516199158974418, guid: e866299c8c9d59d458bb3150451591bd, type: 3}
+  dashSFX: {fileID: 0}
+  uppercutSFX: {fileID: 0}
+  dashShakeIntensity: 0.3
+  shakeDuration: 0.3
+--- !u!114 &1238845415456644974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c2bf5ef9baa3b46b62ebe7a6ffbe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: Phase 4 - Obsidian Guillotine & Meteor Dive
+  skillCooldown: 3
+  debugMode: 0
+  phase4Model: {fileID: 3525278979287222829}
+  skeletonAnimation: {fileID: 1911454430010075476}
+  meleePoint: {fileID: 0}
+  rangedPoint: {fileID: 0}
+  groundPoint: {fileID: 0}
+  summonWindupTime: 0.25
+  floatingRockPrefab: {fileID: 6967080625725463891, guid: c553d054853e663429a8e4858837ecb9, type: 3}
+  summonSFX: {fileID: 0}
+  floatingRockCount: 3
+  rockFloatHeight: 5.5
+  rockSpawnSpread: 4
+  bombScale: {x: 1.5, y: 1.5, z: 1}
+  bombLaunchDuration: 0.28
+  launchArcPeakBonus: 1.2
+  firstRockHomingDelay: 0.2
+  rockThrowInterval: 0.25
+  individualRockThrowDelays:
+  - 0
+  - 0.25
+  - 0.25
+  launchRocksSequentially: 1
+  homingStartSpeed: 7
+  homingMaxSpeed: 16
+  homingAcceleration: 20
+  rockSpinSpeed: 720
+  maxHomingDuration: 3
+  explodeWhenHomingExpires: 1
+  rockHitRadius: 0.45
+  rockCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  rockStopTags:
+  - Ground
+  - Wall
+  rockImpactDamage: 20
+  rockImpactKnockback: 4
+  slamImpactVFXPrefab: {fileID: 262669065149868658, guid: 5bf8ad5fdf4d18342945ca3020ec7571, type: 3}
+  slamSFX: {fileID: 0}
+  impactShakeIntensity: 0.22
+  impactShakeDuration: 0.16
+  shrapnelPerRock: 6
+  shrapnelDamage: 12
+  shrapnelSpeed: 14
+  shrapnelPrefab: {fileID: 4619741061996113988, guid: fa24ed6e6e85c454c9f504f769f30f42, type: 3}
+  bobbingAmplitude: 0.18
+  bobbingSpeed: 2.5
+--- !u!114 &2666762111268819820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a84f39b2b1c4e9089ef01a7d65b9006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossController: {fileID: 0}
+  bossHealth: {fileID: 0}
+  phase4Model: {fileID: 3525278979287222829}
+  tectonicRendingSkill: {fileID: 7095115427971530416}
+  obsidianGuillotineSkill: {fileID: 1238845415456644974}
+  meleeRangeThreshold: 6
+  globalSkillCooldown: 2.5
+  detectionRadius: 18
+  aggressionMultiplierLowHealth: 1.5
+  lowHealthThreshold: 0.35
+--- !u!114 &2512622747880229829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a84f39b2b1c4e9089ef01a7d65b9010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossController: {fileID: 0}
+  bossHealth: {fileID: 0}
+  meleeSkill: {fileID: 7095115427971530416}
+  guillotineSkill: {fileID: 1238845415456644974}
+  combatBrain: {fileID: 2666762111268819820}
+  showOnScreenGUI: 0
+  testPlayerTarget: {fileID: 0}
+--- !u!50 &2372269702372909250
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &7183920147289163015
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795710190203665446}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 3.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.5, y: 8.5}
+  m_EdgeRadius: 0
