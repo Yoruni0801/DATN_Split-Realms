@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5795f834f1203564baf47e7d62b4098d, type: 3}
+  m_Name: PlayerElementAuraData
+  m_EditorClassIdentifier: 
+  auraConfigs:
+  - skillSet: {fileID: 11400000, guid: 5f64dfe2107d1fa45b2016662e1faf94, type: 2}
+    auraPrefab: {fileID: 100718, guid: 23c9247fb25ccd1408c231aa729016e0, type: 3}
+    localPosition: {x: 0, y: 0, z: 0}
+    localEulerAngles: {x: -90, y: 0, z: 0}
+    localScale: {x: 0.18, y: 0.45, z: 0.18}
+  - skillSet: {fileID: 11400000, guid: 4bedf5b732e9b6f47ae901f6b9ce6530, type: 2}
+    auraPrefab: {fileID: 103860, guid: 36f4a544e3a0cf140bb966d1597ac84f, type: 3}
+    localPosition: {x: 0, y: 0, z: 0}
+    localEulerAngles: {x: -90, y: 0, z: 0}
+    localScale: {x: 0.18, y: 0.45, z: 0.18}
+  - skillSet: {fileID: 11400000, guid: ca55bc9a5aae4ccba2b2551e7a113e9d, type: 2}
+    auraPrefab: {fileID: 137258, guid: 3935e8efc2cda6940a1a351d3be7c3eb, type: 3}
+    localPosition: {x: 0, y: 0, z: 0}
+    localEulerAngles: {x: -18.593, y: 55.211, z: -138.812}
+    localScale: {x: 0.18, y: 0.45, z: 0.18}
+  - skillSet: {fileID: 11400000, guid: dff423f374627e849ab60e36f5b2026e, type: 2}
+    auraPrefab: {fileID: 116670, guid: 27473e69d852d494bb7c45e672447eb5, type: 3}
+    localPosition: {x: 0, y: 0, z: 0}
+    localEulerAngles: {x: -90, y: 0, z: 0}
+    localScale: {x: 0.18, y: 0.45, z: 0.18}

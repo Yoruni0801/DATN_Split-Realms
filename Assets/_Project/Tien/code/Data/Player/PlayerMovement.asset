@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a461d5c19378839429317ca62fbce537, type: 3}
+  m_Name: PlayerMovement
+  m_EditorClassIdentifier: 
+  walkSpeed: 14
+  acceleration: 40
+  deceleration: 40
+  groundFriction: 12
+  airDrag: 3
+  airControlMultiplier: 0.45
+  jumpForce: 10
+  maxJumps: 2
+  jumpCutMultiplier: 0.5
+  fallGravityMultiplier: 6
+  maxSlopeAngle: 45
+  slopeSpeedMultiplier: 0.7
+  slopeDownhillMultiplier: 1.2
+  landingGravityBoost: 1.5
+  landingBoostDuration: 0.08
+  landingImpactThreshold: 8
+  swimSpeed: 14
+  swimAcceleration: 100
+  swimDeceleration: 5
+  swimGravityScale: 1.6
+  maxWaterEntryFallSpeed: 4
+  acidFloatUpSpeed: 2.5
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 1
+  ghostDelay: 0.03
+  ghostPrefab: {fileID: 830757814666332454, guid: 41a809857ecc53a448629045f60c4fb9, type: 3}
+  swimDashVfxPrefab: {fileID: 106438, guid: e156790911efcce4c8eb965b94c15f1f, type: 3}
+  swimDashVfxOffset: {x: 0, y: 0, z: 0}
+  groundCheckRadius: 0.2
+  gravityColliderDisableDuration: 0.4
+  rota:
+    moveSpeed: 15
+    acceleration: 100
+    deceleration: 140
+    turnAcceleration: 180
+    airAcceleration: 45
+    jumpSpeed: 18
+    jumpReleaseSpeedMultiplier: 0.45
+    gravity: 28
+    fallGravityMultiplier: 3
+    maxFallSpeed: 100
+    surfaceStickSpeed: 2
+    groundCheckDistance: 0.08
+    groundNormalMinDot: 0.65
+    edgeCornerNudge: 0.14
+    edgeAttachDistance: 0.9
+    edgeAttachCooldown: 0.12
+    autoAttachAtEdges: 1
